@@ -27,9 +27,22 @@ function currency_converter_shortcode(){
             <option value="EUR">EUR</option>
             <option value="GBP">GBP</option>
         </select>
+
+        <button type="submit">Convert</button>
     </form> 
 
     <div id="converted-result"></div>
+
+    <script>
+        document.getElementById('currency-converter-form').addEventListener('submit', function(e){
+            e.preventDefault();
+            var amount = document.getElementById('amount').value;
+            var from_currency = document.getElementById('from_currency').value;
+            var to_currency = document.getElementById('to_currency').value;
+        })
+
+
+    </script>
 
 <?php
 }
