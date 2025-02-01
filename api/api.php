@@ -14,5 +14,8 @@ function currency_converter($request){
     $from_currency = $request->get_param('from_currency');
     $to_currency = $request->get_param('to_currency');
 
+    $api = "https://api.exchangerate-api.com/v4/latest/{$from_currency}";
+
     
+
 }
