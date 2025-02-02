@@ -6,6 +6,7 @@ Version: 1.0
 Author: Shams Khan
 */
 
+//Register REST Route and call the Exchangerate API and return array - converted_amount
 require_once('api/api.php');
 
 // Register the shortcode
