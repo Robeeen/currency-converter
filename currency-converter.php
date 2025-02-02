@@ -7,11 +7,14 @@ Version: 1.0
 Author: Shams Khan
 */
 
+add_shortcode('currency_converter', 'currency_converter_shortcode');
+
 function currency_converter_shortcode(){
     ob_start(); ?>
     <form id="currency-converter-form">
         <label for="amount">Amount:</label>
         <input type="number" id="amount" name="amount" step="0.01" required />
+        <br /> <br />
 
         <label for="from_currency">From Currency: </label>
         <select id="from_currency" name="from_currency" required>
@@ -28,6 +31,8 @@ function currency_converter_shortcode(){
             <option value="GBP">GBP</option>
         </select>
 
+        <br /> <br />
+
         <button type="submit">Convert</button>
     </form> 
 
@@ -39,6 +44,9 @@ function currency_converter_shortcode(){
             var amount = document.getElementById('amount').value;
             var from_currency = document.getElementById('from_currency').value;
             var to_currency = document.getElementById('to_currency').value;
+
+            
+
         })
 
 
@@ -47,3 +55,6 @@ function currency_converter_shortcode(){
 <?php
 }
 
+
+
+require_once('api/api.php');

@@ -15,7 +15,21 @@ function currency_converter($request){
     $to_currency = $request->get_param('to_currency');
 
     $api = "https://api.exchangerate-api.com/v4/latest/{$from_currency}";
+    //Performs an HTTP request using the GET method and returns its response
+    $response = wp_remote_get($api);
 
-    
+    if(is_wp_error($response)){
+        return new WP_Error('api_error', 'Unable to fetch the exchange rates', array(
+            'status' => 500
+        ));
+    }
+
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body);
+
+    var_dump($data);
+
+
+
 
 }
