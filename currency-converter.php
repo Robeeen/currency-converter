@@ -45,14 +45,17 @@ function currency_converter_shortcode(){
             var from_currency = document.getElementById('from_currency').value;
             var to_currency = document.getElementById('to_currency').value;
 
-            
+            fetch('/wp-json/currency-converter/v1/convert?amount=' + amount + ' &from_currency=' + from_currency + ' &to_currency=' + to_currency)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('converted-result').innerHTML = 'Converted Amount:' + data.converted_amount;
+            });
 
-        })
-
-
+        });
     </script>
 
 <?php
+return ob_get_clean();
 }
 
 
